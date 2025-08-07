@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Nails | Domů</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero {
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('img/studio.jpeg'); /* ← zde změň na svou cestu */
+            background-size: cover;         /* roztáhne do šířky i výšky */
+            background-position: center;    /* zarovná na střed */
+            background-repeat: no-repeat;   /* nebude se opakovat */
+}
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .branch-card {
+            transition: all 0.3s ease;
+        }
+        .branch-card:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="font-sans bg-pink-50">
+
+    <!-- Loader -->
+    <div id="loader" class="fixed inset-0 bg-white z-[9999] flex items-center justify-center transition-opacity duration-700">
+        <div class="w-12 h-12 border-[5px] border-pink-500 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+
+    <!-- Navigation -->
+
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center">
+        <i class="fas fa-spa text-pink-500 text-3xl mr-2"></i>
+        <span class="font-semibold text-gray-800 text-xl">Divine Nails</span>
+      </a>
+
+      <!-- Desktop navigace -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="index.html" class="text-pink-500 border-b-2 border-pink-500 font-semibold py-2 px-3">Domů</a>
+        <a href="cenik.html" class="text-gray-600 hover:text-pink-500 font-semibold py-2 px-3 transition duration-300">Ceník</a>
+        <a href="galerie.html" class="text-gray-600 hover:text-pink-500 font-semibold py-2 px-3 transition duration-300">Galerie</a>
+        <a href="kontakt.html" class="text-gray-600 hover:text-pink-500 font-semibold py-2 px-3 transition duration-300">Kontakt</a>
+        <a href="kontakt.html" class="ml-4 bg-pink-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-pink-600 transition duration-300">
+          Rezervace <i class="fas fa-calendar-check ml-1"></i>
+        </a>
+      </div>
+
+      <!-- Mobilní tlačítko -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-open" class="outline-none">
+          <i class="fas fa-bars text-2xl text-gray-700"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Overlay + Mobile Menu -->
+<div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+<div id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+  <div class="flex justify-end items-center p-4 border-b">
+    <button id="mobile-close" class="text-gray-600">
+      <i class="fas fa-times text-xl"></i>
+    </button>
+  </div>
+  <nav class="flex flex-col p-4 space-y-5 text-lg font-semibold">
+    <a href="index.html" class="text-pink-500">Domů</a>
+    <a href="cenik.html" class="text-gray-800 hover:text-pink-500">Ceník</a>
+    <a href="galerie.html" class="text-gray-800 hover:text-pink-500">Galerie</a>
+    <a href="kontakt.html" class="text-gray-800 hover:text-pink-500">Kontakt</a>
+    <a href="kontakt.html" class="bg-pink-500 text-white text-center py-2 px-4 rounded hover:bg-pink-600">
+      Rezervace
+    </a>
+  </nav>
+</div>
+
+
+
+    <!-- Hero Section -->
+    <section class="hero text-white py-24 md:py-40 relative">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight">Váš dokonalý<br>manikúrní zážitek</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto font-light">Profesionální péče o vaše ruce a nehty v luxusním prostředí</p>
+            <a href="kontakt.html" class="group bg-pink-500 hover:bg-pink-600 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 inline-block shadow-lg hover:shadow-xl">
+    Rezervovat termín <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1">                    </i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Naše služby</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Gelové nehty" class="w-full h-64 object-cover transition duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Gelové nehty</h3>
+                        <p class="text-gray-600 mb-5">Dokonalé gelové nehty s dlouhou výdrží a lesklým efektem.</p>
+                        <a href="cenik.html" class="text-pink-500 font-semibold hover:text-pink-600 flex items-center group -mr-1">
+                            Zobrazit ceník <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1596704017250-13c0a5d1c369?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Manikúra" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Komplexní manikúra</h3>
+                        <p class="text-gray-600 mb-4">Péče o vaše ruce s dokonalým výsledkem a relaxačním efektem.</p>
+                        <a href="cenik.html" class="text-pink-500 font-semibold hover:text-pink-600 flex items-center group">
+                            Zobrazit ceník <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1604658243842-83a6bc4dfa49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Nail art" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Nail art</h3>
+                        <p class="text-gray-600 mb-4">Originální designy podle vašich představ a aktuálních trendů.</p>
+                        <a href="gallery.html" class="text-pink-500 font-semibold hover:text-pink-600 flex items-center group -mr-1">
+                            Prohlédnout galerii <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="py-20 bg-gradient-to-b from-pink-50 to-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Naše práce</h2>
+                    <p class="text-gray-600 mb-6">Prohlédněte si naši galerii plnou inspirace pro váš dokonalý vzhled nehtů. Každý design je unikátní a vytvořený s láskou.</p>
+                    <a href="galerie.html" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full inline-block transition duration-300">
+                        Prohlédnout celou galerii <i class="fas fa-images ml-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1596703264279-5f3a82b3c457?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Nail design 1" class="rounded-lg shadow-md h-48 w-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1597248881519-db089d3744a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Nail design 2" class="rounded-lg shadow-md h-48 w-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1596704017250-13c0a5d1c369?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Nail design 3" class="rounded-lg shadow-md h-48 w-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1604658243842-83a6bc4dfa49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Nail design 4" class="rounded-lg shadow-md h-48 w-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branches -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Naše pobočky</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Branch 1 -->
+                <div class="branch-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pobočka Praha" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Praha</h3>
+                        <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt text-pink-500 mr-2"></i> Václavské náměstí 12</p>
+                        <p class="text-gray-600 mb-2"><i class="fas fa-phone text-pink-500 mr-2"></i> +420 123 456 789</p>
+                        <p class="text-gray-600 mb-4"><i class="fas fa-clock text-pink-500 mr-2"></i> Po-Ne: 9:00 - 20:00</p>
+                        <a href="kontakt.html" class="text-pink-500 font-semibold hover:text-pink-600 flex items-center group mt-4 -mr-1">
+                            Více informací <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Branch 2 -->
+                <div class="branch-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pobočka Brno" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Brno</h3>
+                        <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt text-pink-500 mr-2"></i> Náměstí Svobody 8</p>
+                        <p class="text-gray-600 mb-2"><i class="fas fa-phone text-pink-500 mr-2"></i> +420 987 654 321</p>
+                        <p class="text-gray-600 mb-4"><i class="fas fa-clock text-pink-500 mr-2"></i> Po-Ne: 8:00 - 19:00</p>
+                        <a href="kontakt.html" class="text-pink-500 font-semibold hover:text-pink-600 flex items-center group mt-4">
+                            Více informací <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Branch 3 -->
+                <div class="branch-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pobočka Ostrava" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Ostrava</h3>
+                        <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt text-pink-500 mr-2"></i> Masarykovo náměstí 5</p>
+                        <p class="text-gray-600 mb-2"><i class="fas fa-phone text-pink-500 mr-2"></i> +420 456 789 123</p>
+                        <p class="text-gray-600 mb-4"><i class="fas fa-clock text-pink-500 mr-2"></i> Po-Ne: 10:00 - 21:00</p>
+                        <a href="kontakt.html" class="text-pink-500 font-semibold hover:text-pink-600 flex items-center group mt-4">
+                            Více informací <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recenze klientek -->
+<section class="py-20 bg-gradient-to-r from-pink-100 to-pink-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Co o nás říkají klientky</h2>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <!-- Recenze 1 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-pink-100 hover:shadow-xl transition duration-300">
+        <div class="flex items-center mb-4 space-x-4">
+        <a href="https://www.google.com/maps/contrib/118036762556950135599/place/ChIJM8FiUcGVEkcRu-W9Rvd3cb8/" target="_blank" rel="noopener noreferrer">
+          <img src="img/jarka.png" alt="V" class="w-12 h-12 rounded-full object-cover shadow-md" />
+           </a>
+          <div>
+            <h4 class="font-semibold text-gray-800">Jarka Otradovcová</h4>
+            <div class="flex text-amber-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p class="text-gray-600 italic">"Skvělé služby ve velmi příjemném prostředí, masážní křesla při pedikuře super, milí lidé. Díky."</p>
+      </div>
+
+      <!-- Recenze 2 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-pink-100 hover:shadow-xl transition duration-300">
+        <div class="flex items-center mb-4 space-x-4">
+        <a href="https://www.google.com/maps/contrib/107090859104100646600/place/ChIJM8FiUcGVEkcRu-W9Rvd3cb8/" target="_blank" rel="noopener noreferrer">
+          <img src="img/aneta.png" alt="A" class="w-12 h-12 rounded-full object-cover shadow-md" />
+        </a>
+          <div>
+            <h4 class="font-semibold text-gray-800">Prucklova Aneta</h4>
+            <div class="flex text-amber-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p class="text-gray-600 italic">„Nejkrásnější nehty,jaké jsem kdy měla, rychlé, kvalitní a za skvělou cenu.“</p>
+      </div>
+
+      <!-- Recenze 3 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-pink-100 hover:shadow-xl transition duration-300">
+         <div class="flex items-center mb-4 space-x-4">
+        <a href="https://www.google.com/maps/contrib/107939990515154034025/place/ChIJM8FiUcGVEkcRu-W9Rvd3cb8/" target="_blank" rel="noopener noreferrer">
+            <img src="img/marta.png" alt="M" class="w-12 h-12 rounded-full object-cover shadow-md" />
+          </a>
+          <div>
+            <h4 class="font-semibold text-gray-800">Marta Tobolová</h4>
+            <div class="flex text-amber-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p class="text-gray-600 italic">„Vždy velmi spokojená, mohu doporučit.
+            Příjemný a vždy vstřícný personál 👍 …“</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="md:col-span-1">
+                    <h3 class="text-xl font-semibold mb-4">Divine Nails</h3>
+                    <p class="text-gray-400">Profesionální nehtové studio s láskou k detailu a dokonalému vzhledu.</p>
+                </div>
+                <div class="md:col-span-1">
+                    <h3 class="text-xl font-semibold mb-4">Kontakt</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center"><i class="fas fa-envelope mr-2"></i> info@divinenails.cz</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-2"></i> +420 123 456 789</li>
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> Václavské náměstí 12, Praha</li>
+                    </ul>
+                </div>
+                <div class="md:col-span-1">
+                    <h3 class="text-xl font-semibold mb-4">Sledujte nás</h3>
+                    <div class="flex space-x-4">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/divinenaillounge.campus" target="_blank" class="text-gray-400 hover:text-[#1877F2] text-2xl transition-colors duration-300">
+                          <i class="fab fa-facebook"></i>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/divinenails_brno/" target="_blank"
+                           class="text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:via-pink-500 hover:to-purple-600 text-2xl transition-colors duration-300">
+                          <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Divine Nails. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu script -->
+    <script>
+  const openBtn = document.getElementById("mobile-open");
+  const closeBtn = document.getElementById("mobile-close");
+  const menu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("mobile-overlay");
+
+  function openMenu() {
+    overlay.classList.remove("hidden");
+    setTimeout(() => {
+      menu.classList.remove("translate-x-full");
+    }, 10);
+  }
+
+  function closeMenu() {
+    menu.classList.add("translate-x-full");
+    setTimeout(() => {
+      overlay.classList.add("hidden");
+    }, 300);
+  }
+
+  openBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu); // ← kliknutí vedle menu ho zavře
+</script>
+
+<!-- Loader -->
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    loader.classList.add('opacity-0');
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 300); // odpovídá `duration-700`
+  });
+</script>
+
+
+
+</body>
+</html>
