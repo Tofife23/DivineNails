@@ -130,18 +130,28 @@
   </p>
 
   <!-- Mobil (klikací, podtržené jen číslo) -->
-  <div class="text-gray-600 flex items-center drop-shadow md:hidden">
+<div class="text-gray-600 flex flex-col drop-shadow md:hidden">
+  <div class="flex items-center">
     <i class="fas fa-phone text-pink-400 mr-3 drop-shadow-sm"></i>
     <a href="tel:+420771178888" class="underline hover:text-pink-300">
       +420 771 178 888
     </a>
   </div>
+  <p class="text-sm text-red-500 mt-1">
+    Pozor na záměnu
+  </p>
+</div>
 
-  <!-- Desktop (jen text, bez odkazu) -->
-  <p class="text-gray-600 flex items-center drop-shadow hidden md:flex">
+<!-- Desktop (jen text, bez odkazu) -->
+<div class="text-gray-600 flex flex-col drop-shadow hidden md:flex">
+  <div class="flex items-center">
     <i class="fas fa-phone text-pink-400 mr-3 drop-shadow-sm"></i>
     +420 771 178 888
+  </div>
+  <p class="text-sm text-red-500 mt-1">
+    Pozor na záměnu
   </p>
+</div>
 
   <p class="text-gray-600">
     <i class="fas fa-clock text-pink-400 mr-2"></i>
